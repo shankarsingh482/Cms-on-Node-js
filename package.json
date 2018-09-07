@@ -1,0 +1,30 @@
+{
+  "name": "cms",
+  "version": "1.0.1",
+  "description": "A CMS in NODE.js",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [
+    "CMS"
+  ],
+  "author": "Edwin Diaz",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.2",
+    "connect-flash": "^0.1.1",
+    "express": "^4.16.2",
+    "express-fileupload": "^0.3.0",
+    "express-handlebars": "^3.0.0",
+    "express-session": "^1.15.6",
+    "faker": "^4.1.0",
+    "method-override": "^2.3.10",
+    "moment": "^2.20.1",
+    "mongoose": "^5.0.14",
+    "mongoose-url-slugs": "^1.0.2",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0"
+  }
+}
