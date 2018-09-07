@@ -1,0 +1,14 @@
+{
+  "name": "testing_demo",
+  "version": "1.0.1",
+  "description": "unit testing ",
+  "main": "db.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "shankar singh",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^23.5.0"
+  }
+}

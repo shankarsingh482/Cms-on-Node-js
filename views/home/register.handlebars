@@ -1,0 +1,94 @@
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<div class="card card-register mx-auto mt-5">
+    <div class="card-header">Register an Account</div>
+    <div class="card-body">
+        <form action="/register" method="post">
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <label for="exampleInputName">First name</label>
+                        <input value="{{firstName}}" required name="firstName" class="form-control" id="exampleInputName" type="text" aria-describedby="nameHelp" placeholder="Enter first name">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="exampleInputLastName">Last name</label>
+                        <input value="{{lastName}}" required name="lastName" class="form-control" id="exampleInputLastName" type="text" aria-describedby="nameHelp" placeholder="Enter last name">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input value="{{email}}"required name="email" class="form-control" id="exampleInputEmail1" type="email" aria-describedby="emailHelp" placeholder="Enter email">
+            </div>
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input required name="password" class="form-control" id="password" type="password" placeholder="Password">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="exampleConfirmPassword">Confirm password</label>
+                        <input required name="passwordConfirm" class="form-control" id="confirm_password" type="password" placeholder="Confirm password">
+                    </div>
+                </div>
+                <span id='message'></span><br>
+                {{#if errors}}
+<span style="color: red" id="failMessage">{{message}}</span>
+                    {{/if}}
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Register</button>
+        </form>
+        <div class="text-center">
+            <a class="d-block small mt-3" href="/login">Login Page</a>
+            <a class="d-block small" href="forgot-password.html">Forgot Password?</a>
+            <a class="d-block small" href="/">Home Page?</a>
+        </div>
+    </div>
+</div>
+
+<!-- password validation using Jquery  -->
+<script>
+
+    $('#confirm_password').on('keydown', function () {
+        if ($('#password').val() == $('#confirm_password').val()) {
+            $('#message').html('Matching').css('color', 'green');
+        } else
+            $('#message').html('Not Matching').css('color', 'red');
+
+    });
+
+</script>
+
+<!--for hiding message of login credentials
+ -->
+<script>
+ $(function() {
+    // setTimeout() function will be fired after page is loaded
+    // it will wait for 5 sec. and then will fire
+    // $("#successMessage").hide() function
+     setTimeout(function() {
+         $('#successMessage').fadeOut('fast');
+     }, 3000);
+});
+
+</script>
+
+
+<!--  password matching using javasscript
+<script>
+
+    var check = function() {
+        if (document.getElementById('password').value ==
+                document.getElementById('confirm_password').value) {
+            document.getElementById('message').style.color = 'green';
+            document.getElementById('message').innerHTML = 'matching';
+        } else {
+            document.getElementById('message').style.color = 'red';
+            document.getElementById('message').innerHTML = 'not matching';
+        }
+    }
+
+</script>
+
+-- >

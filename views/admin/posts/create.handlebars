@@ -1,0 +1,87 @@
+<h1>Create Post</h1>
+
+
+{{#each errors}}
+
+    <div class="alert alert-danger">
+
+        {{message}}
+
+    </div>
+
+
+
+{{/each}}
+
+
+
+<form action="/admin/posts/create" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="title">Title</label>
+        <input required name="title" type="text" class="form-control" id="title" placeholder="Enter title" >
+    </div>
+
+    <div class="form-group">
+        <label for="file">File Upload</label>
+        <input required type="file" name="file" class="form-control" >
+    </div>
+
+    <div class="form-group">
+        <label for="status">Category</label>
+        {{#if categories}}
+        <select name="category" id="status" class="form-control">
+
+
+            {{#each categories}}
+
+            <option value="{{id}}">{{name}}</option>
+
+            {{/each}}
+
+        </select>
+        {{else}}
+        <select name="category" id="status" class="form-control disabled" onclick="myalert()">
+        </select>
+        {{/if}}
+    </div>
+
+
+    <div class="form-group">
+        <label for="status">Status</label>
+        <select name="status" id="status" class="form-control">
+            <option value="public">Public</option>
+            <option value="private">Private</option>
+            <option value="draft">Draft</option>
+        </select>
+    </div>
+
+
+
+    <div class="form-check">
+        <label for="allowComments" class="form-check-label">
+        <input name="allowComments" type="checkbox" class="form-check-input" id="allowComments">
+            Allow Comments
+        </label>
+    </div>
+
+    <div class="form-group">
+        <label for="body">Body</label>
+        <textarea required  name="body" cols="30" rows="10" class="form-control" id="body" placeholder="Enter Description"></textarea>
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Create Post</button>
+
+
+</form>
+
+
+<script>
+
+    function myalert()
+    {
+
+        alert('First Make category  then come to post section');
+
+    }
+</script>

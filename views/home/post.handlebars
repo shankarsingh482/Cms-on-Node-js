@@ -1,0 +1,100 @@
+<div class="row">
+
+    <!-- Post Content Column -->
+    <div class="col-lg-8">
+
+        <!-- Title -->
+        <h1 class="mt-4">{{post.title}}</h1>
+
+        <!-- Author -->
+        <p class="lead">
+            by
+            <a href="#">{{post.user.firstName}}</a>
+        </p>
+
+        <hr>
+
+        <!-- Date/Time -->
+        <p>Posted on {{generateDate date "MMMM Do YYYY"}}</p>
+
+        <hr>
+
+        <!-- Preview Image -->
+        <img class="img-fluid rounded" src="/uploads/{{post.file}}" alt="">
+
+        <hr>
+
+        <!-- Post Content -->
+
+        <p>{{post.body}}</p>
+
+        <hr>
+
+
+    {{#if user}}
+
+     {{#if post.allowComments}}
+
+        <!-- Comments Form -->
+        <div class="card my-4">
+            <h5 class="card-header">Leave a Comment:</h5>
+            <div class="card-body">
+                <form action="/admin/comments" method="post">
+                    <div class="form-group">
+                        <textarea name="body" class="form-control" rows="3"></textarea>
+
+                        <input type="hidden" value="{{post.id}}" name="id">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+
+        {{else}}
+
+        <h2>Comments not allowed for this</h2>
+
+            <br>
+            <hr>
+
+
+        {{/if}}
+
+
+    {{else}}
+
+        You need to login to comment <a href="/login">Login</a>
+
+        <br>
+        <hr>
+
+    {{/if}}
+
+
+
+         {{#each post.comments}}
+
+        <!-- Single Comment -->
+        <div class="media mb-4">
+            <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+            <div class="media-body">
+                <h5 class="mt-0">{{user.firstName}}</h5>
+
+                {{body}}
+
+            </div>
+        </div>
+
+        {{/each}}
+
+
+
+
+
+
+    </div>
+
+    {{> home/sidebar}}
+
+</div>
+<!-- /.row -->

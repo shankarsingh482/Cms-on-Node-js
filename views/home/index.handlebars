@@ -1,0 +1,55 @@
+
+<div class="row">
+
+    <!-- Blog Entries Column -->
+    <div class="col-md-8">
+
+        <h1 class="my-4">Home
+
+        </h1>
+
+
+        {{#each posts}}
+
+        <!-- Blog Post -->
+        <div class="card mb-4">
+            <img class="card-img-top" src="/uploads/{{file}}" alt="Card image cap">
+            <div class="card-body">
+                <h2 class="card-title">{{title}}</h2>
+                <p class="card-text">{{body}}</p>
+
+                <a href="/post/{{slug}}" class="btn btn-primary">Read More &rarr;</a>
+            </div>
+            <div class="card-footer text-muted">
+                Posted on {{generateDate date "MMMM Do YYYY"}} by
+
+            {{users}}
+                <a href="#">{{users.firstName}}</a>
+            </div>
+
+        </div>
+
+        {{/each}}
+
+
+
+        <!-- Pagination -->
+        <ul class="pagination justify-content-center mb-4">
+            {{#if posts}}
+            {{#paginate current=current pages=pages}}{{/paginate}}
+            {{/if}}
+
+        </ul>
+
+    </div>
+
+
+
+    <!-- Sidebar Widgets Column -->
+
+    {{> home/sidebar}}
+
+
+
+</div>
+<!-- /.row -->
